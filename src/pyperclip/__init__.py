@@ -309,9 +309,13 @@ def init_no_clipboard():
             def __bool__(self):
                 return False
 
-    return ClipboardUnavailable(), ClipboardUnavailable()
+    def copy_noop(text):
+        pass
 
+    def paste_noop():
+        return ""
 
+    return copy_noop, paste_noop
 
 
 # Windows-related clipboard functions:
